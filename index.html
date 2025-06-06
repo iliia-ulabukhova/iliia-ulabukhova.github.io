@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MultiStoreyRebuses</title>
+<link type="text/css" rel="stylesheet" href="style.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="int-splash">
+    <header class="int-header">
+        <div class="int-header__content">
+            <h3 class="int-header__title">
+                <span> 
+                     Оберіть порядок (розмірність) квадрата та рівень складності (легкий, середній, важкий). Потім оберіть тип елементів та позначте їх. Створіть квадрат натиснувши кнопку &quot;Створити&quot;.
+                    Кожен елемент в клітинках таблиці — це одноцифрове число. Знайдіть числове значення кож- ного елементу, якщо відомо, що сума чисел у кожному рядку дорівнює числу справа, а сума чисел у кожному стовпці — числу знизу.
+                </span>
+            </h3>
+        </div>
+        <div class="int-header__move">
+            <button type="button" aria-label="Повноекранний режим"
+                    class="material-symbols-button" id="fullscreenButton">
+                <i class="material-symbols-rounded">fullscreen</i>
+            </button>
+        </div>
+    </header>
+</div>
+
+<main>
+    <section id="rebus-type">
+        <section id="radio-buttons-section" class="radio-check-area">
+            <label tabindex="1">
+                <input type="radio" name="type" value="PIXEL">
+                <span class="inner" id="PIXEL"></span>
+                <span>Пікселі</span>
+            </label>
+            <label tabindex="2">
+                <input type="radio" name="type" value="IMAGE">
+                <span class="inner" id="IMAGE"></span>
+                <span>Фігури</span>
+            </label>
+            <label tabindex="3">
+                <input type="radio" name="type" value="UKR_LETTERS">
+                <span class="inner" id="UKR_LETTERS"></span>
+                <span>Укр. літери</span>
+            </label>
+            <label tabindex="4">
+                <input type="radio" name="type" value="SMILES">
+                <span class="inner" id="SMILES"></span>
+                <span>Картинки</span>
+            </label>
+        </section>
+        <section id="drop-down">
+        </section>
+    </section>
+    <nav>
+        <section id="complexity-level" class="radio-check-area">
+            <span>Складність:</span>
+            <label tabindex="5">
+                <input type="radio" name="complexity" value="EASY_LEVEL">
+                <span class="inner" id="EASY_LEVEL"></span>
+                <span>Легка</span>
+            </label>
+            <label tabindex="6">
+                <input type="radio" name="complexity" value="MEDIUM_LEVEL">
+                <span class="inner" id="MEDIUM_LEVEL"></span>
+                <span>Середня</span>
+            </label>
+            <label tabindex="7">
+                <input type="radio" name="complexity" value="HARD_LEVEL">
+                <span class="inner" id="HARD_LEVEL"></span>
+                <span>Важка</span>
+            </label>
+        </section>
+        <label id="order-label">Порядок:
+            <input name="order" id="order" inputmode="numeric" min="4" max="10" placeholder="5"/>
+        </label>
+        <button type="button" class="cta cta-primary" id="generate" onclick="generate()">Створити</button>
+    </nav>
+    <div id="rebus-square">
+        <div id="board">
+        </div>
+        <div id="pull"></div>
+    </div>
+</main>
+
+<footer class="int-footer">
+    <button type="button" aria-label="Спробуйте ще раз" class="cta cta-icon cta-secondary" onclick="retry()">
+        <i aria-hidden="true" class="material-icons">refresh</i>
+    </button>
+    <button type="button" class="cta cta-primary" onclick="check()" id="check">Перерахуй значення виділені червоним</button>
+</footer>
+
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript" src="js/latin-square-cLass.js"></script>
+<script type="text/javascript" src="js/drag-and-drop.js"></script>
+<script type="text/javascript" src="js/actions.js"></script>
+<script src="js/listeners.js"></script>
+</body>
+
+</html>
